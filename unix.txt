@@ -1,0 +1,331 @@
+Unix
+
+clear - clears console(COMMAND)
+pwd - gives current directory
+cd - changes directory
+ls - list all files and folders
+. -  refers current
+.. - refers parent
+echo - prints data
+sort - sorts given data 
+ctrl+d - exit shell
+
+As soon as a user of unix system logs in, he will be taken to his home directory
+/home/Surya
+
+> output redirection symbol
+
+Creating a file:
+cat > filename
+contents
+contents
+ctrl+d
+
+To see or view the contents of a file,
+cat filename
+
+There are some editors in ubuntu to modify or edit or change the content of a file Ex: vi,sed
+
+If we need help about any command in unix just type 
+man <command>
+
+To copy a source file contents to a target or destination file
+cp <source> <destination file>
+
+To display long list of files
+ls -l
+
+File permission:
+r - read
+w - write
+x - execute
+
+U-user
+G-group
+O-other
+
+Broadly files are divided into:
+Data files
+Program files
+
+sh filename -  executes the file
+
+To create a directory - mkdir directoryname
+
+To move a file- mv <sourcefilepath> <destinationfilepath>
+
+Administrator or root user- super user having access to all file systems
+
+chmod command is used to grant or revoke access
+chmod (u/g/o) (+/-) (r/w/x) filename
+
+read <variable>
+reads the data into a variable
+read a
+5
+read b
+2
+
+Evaluate expressions in shell
+echo expr `$a + $b`
+expr- defines a expression
+`- shows the start and end of expr
+
+Shell script:It is a program file ends with .sh extension
+Ex: add.sh
+
+To execute a shellscript,
+$sh <shellscript.sh>
+
+Programming constructs:
+conditional statements:
+	1.if
+		if test condition
+		then
+			<statements>
+		fi
+	case constructs:when we are looking for an exact match in a variable, use case
+	Syntax:
+		case $variable in
+		pattern 1)
+			statements1
+			...
+			statementsn
+			;;
+		pattern 2)
+			statements1
+			...
+			statementsn
+			;;
+		*)
+			statements
+			...
+			statementsn
+			;;
+		esac
+			
+	
+condition is an expression that uses relational operators (
+-gt = greater than
+-ge = greater than equal
+-lt = less than
+-le = less than equal
+-eq = equal
+-ne =not equal
+)
+Control flow statements
+Looping or iterative statements
+	for
+	Syntax:
+		for var in list
+		do 
+			command1
+			command2
+		done
+	
+	while
+	Syntax:
+	while <condition>
+	do
+		Statements
+	done
+	
+	until loop
+	Syntax:
+	until condition
+	do 
+		command 1
+		command 2
+	done
+	
+To remove a file
+rm <filename>
+
+Shell code for bigger number
+
+clear
+echo Enter first number:
+read a 
+echo Enter Second number:
+read b
+if test $a -eq $b
+then
+	echo "Both are equal"
+elif test $a -gt $b
+then
+	echo "Biggest is $a"
+else 
+	echo "Biggest is $b"
+fi
+
+Wild card characters in unix/linux/ubuntu:
+*-it replaces all the characters or none
+?- it replaces only one character or non
+
+to perform an operation on a wil group of file, we can group them by using  wild card characters
+ex1:
+dislay all the java programs whose name only has three charactersls ???.java
+
+ex2:
+delete all data files ending with .dat extension
+rm *.dat
+
+Processing and related comments
+
+ps- process status(shows Process ID and process names)
+A process is the execution of a set of commands. Every process created in linu has an id and name.Every command in shell is a process
+
+df- shows disk details
+Displays the disk space
+
+who- shows people who have logged in to the subsystem
+whoami- shows your details
+
+fq- Fair queue traffic policing. It is a class less packet scheduler. All packets belonging to a socket is called flow
+
+Top- displays
+
+putty- a command
+
+du- disk usage
+
+< -  direct to input
+
+sort -r reverse sorts
+
+| - pipe symbol uses of output of one command as a input to next command
+ex:
+
+cat R.txt | sort -r | cat>reverse.txt
+
+data flows from  (cat R.txt) to (sort -r) to (cat>reverse.txt)
+
+filter- Data is filtered in desired manner by using filters in unix
+
+Ex:
+sort
+more
+less
+
+>> - appends data
+> - overwrites data
+
+grep -  find a word in a file
+grep "word" <filename>
+
+grep -v excludes the word
+grep -c  counts the word
+
+The kill command senda a signal to specified processes 
+
+9(KILL) - kill a process
+1(HUP) - Reload a process
+15(TERM)- Gracefully reload a process
+
+To get a list -1
+
+kill -1 PID NUMBERkill -SIGHUP PID NUMBERkill -HUP PID_NUMBER
+
+Signal:
+using number  -1
+using sig prefix  -sighup
+without sig prefix -hup
+
+cal-shows calendar
+
+bc - binary calculator
+
+nice- use nice command to runa a program with modified scheduling priority/niceness
+Niceness range atleast from -20(most favourable) to 19(least favorable). 
+
+gawk- pattern scanning and programming language
+AWK programming language
+
+
+@include "filename"
+@load "filename"
+@
+pattern {action statements}
+fucntion name(parameter list) {statements}
+
+export command exports variables
+
+Ex: export myvariable
+
+A child shell is created by sh command
+There are two typed of variables in shell
+1) Pre defined variables- The shell environment variables
+$env
+displays all environmental varaibles and their default variables
+
+2) User defined varaibles- These variables loose their scope once we exit the current shell or create a new child shell
+
+To avail a variable to the child shell we have to use export
+
+
+Ex:
+
+$lucky=786
+$echo $lucky
+786
+$sh
+$echo $lucky-No output
+$ctrl+d (or) exit
+$export lucky
+$sh
+$echo $lucky
+786-Output is availble after export commanD
+
+Files or data blocks where files are stored in linux is accessed using a data structure know as inodes. A file name is a pointer to the inode. Inode contains metadata of the file:
+
+1. Pointer to the disk blocks that store the file content
+2. The size of file in bytes
+3. Device ID
+4. User ID of the file
+5. Group ID of the file
+5. The file node that determines the file type and how UGO can access the file
+6.Additional system and user flags to protect the file
+7.Timestamps indicating when inode was last modified(ctime), file contents was modified(mtime) and when the file was accessed (atime)
+8. Hardlinks containing the inode pointers
+
+
+Creating hardlinks: Hardlinks are pointer to the original file itself. Even if we delete the original file hardlink will direct to the file itself so data is preserved
+
+ln <filename> <hardlinkname>
+
+Symbolic links- Symbolic links are similar to windows shortcuts. They just point to filename. So deletion of original file renders symboliclink useless
+
+ln -s <filename><linkname>
+
+awk programming
+  Domain specific lanuguage designed for text processing and typically used as a data etraction and reporting tool
+  
+wc - wordcount
+wc Filename
+output: No of lines, No of words, No of characters
+
+sed- stream editor
+
+Syntax:
+	echo "Unix is good. Unix is similar to linux" | sed 's/Unix/UNIX/'
+	
+Output:
+UNIX is good. Unix is similar to linux
+
+Only first output is changed
+
+tee filter
+cut filter
+
+Write a shell script to display file or folder given as commandline argument
+
+clear 
+if test -f $1
+then 
+cat $1
+elif test -d $1
+then 
+ ls $1
+fi
+
+head -1 sal
