@@ -1,17 +1,16 @@
 package com.myfss.Beans;
 
-
 public class Login {
 	private String username;
 	private String password;
-	private Boolean isAdmin;
+	private String account;
 	private String EID;
 	
-	public Login(String username, String password, Boolean isAdmin, String eID) {
+	public Login(String username, String password, String account, String eID) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.isAdmin = isAdmin;
+		this.account = account;
 		EID = eID;
 	}
 	public Login()
@@ -30,11 +29,11 @@ public class Login {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Boolean getIsAdmin() {
-		return isAdmin;
+	public String getIsAdmin() {
+		return account;
 	}
-	public void setIsAdmin(Boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setIsAdmin(String isAdmin) {
+		this.account = isAdmin;
 	}
 	public String getEID() {
 		return EID;
