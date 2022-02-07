@@ -7,42 +7,34 @@ public class Employee {
 	private String email;
 	private String phoneNumber;
 	private String dob;
-	public String getDob() {
-		return dob;
-	}
-	public void setDob(String dob) {
+	private String position;
+	private String  doj;
+	private String employeeGrade;
+	private String team;
+	private String companyName;
+	
+	public Employee(int employeeId, String firstName, String lastName, String email, String phoneNumber, String dob,
+			String position, String doj, String employeeGrade, String team, String companyName) {
+		super();
+		this.employeeId = employeeId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 		this.dob = dob;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	private String address;
-	public Employee(int employeeId,String firstName,String lastName,String phoneNumber,String email,String dob,String address)
-	{
-		  this.employeeId = employeeId;
-		  this.firstName = firstName;
-		  this.lastName = lastName;
-		  this.email = email;
-		  this.phoneNumber = phoneNumber;
-		  this.dob = dob;
-		  this.address = address;
-		}
-	public Employee() {
-		// TODO Auto-generated constructor stub
+		this.position = position;
+		this.doj = doj;
+		this.employeeGrade = employeeGrade;
+		this.team = team;
+		this.companyName = companyName;
 	}
 	
+	public Employee()
+	{
+		// Empty-constructor
+	}
 	public int getEmployeeId() {
 		return employeeId;
-	}
-	@Override
-	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", dob=" + dob
-				+ ", address=" + address + "]";
 	}
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
@@ -71,5 +63,51 @@ public class Employee {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	public String getDoj() {
+		return doj;
+	}
+	public void setDoj(String doj) {
+		this.doj = doj;
+	}
+	public String getEmployeeGrade() {
+		return employeeGrade;
+	}
+	public void setEmployeeGrade(String employeeGrade) {
+		this.employeeGrade = employeeGrade;
+	}
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", position=" + position + ", doj=" + doj
+				+ ", employeeGrade=" + employeeGrade + ", team=" + team + ", companyName=" + companyName + "]";
+	}
+	
+	
+	
 	
 }
