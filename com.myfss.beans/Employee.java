@@ -1,19 +1,19 @@
 package com.myfss.Beans;
 
 public class Employee {
-	private int employeeId;
+	private String employeeId;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String phoneNumber;
 	private String dob;
 	private String position;
-	private String  doj;
+	private String doj;
 	private String employeeGrade;
 	private String team;
 	private String companyName;
 	
-	public Employee(int employeeId, String firstName, String lastName, String email, String phoneNumber, String dob,
+	public Employee(String employeeId, String firstName, String lastName, String email, String phoneNumber, String dob,
 			String position, String doj, String employeeGrade, String team, String companyName) {
 		super();
 		this.employeeId = employeeId;
@@ -33,10 +33,10 @@ public class Employee {
 	{
 		// Empty-constructor
 	}
-	public int getEmployeeId() {
+	public String getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeeId(int employeeId) {
+	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
 	}
 	public String getFirstName() {
