@@ -1,0 +1,88 @@
+*****Employee Beans*****
+
+package FSS.beans;
+
+public class Employee {
+	
+	private int Employeeid;
+	private String Employeename;
+	private double EmployeeSal;
+	private String EmployeeDepartment;
+	private String Employeeemail;
+	private String Employeeaddress;
+	
+	
+      
+	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+  
+	public Employee(int employeeid, String employeename, double employeeSal, String employeeDepartment,
+			String employeeemail, String employeeaddress) {
+		super();
+		Employeeid = employeeid;
+		Employeename = employeename;
+		EmployeeSal = employeeSal;
+		EmployeeDepartment = employeeDepartment;
+		Employeeemail = employeeemail;
+		Employeeaddress = employeeaddress;
+	}
+
+	public int getEmployeeid() {
+		return Employeeid;
+	}
+
+	public void setEmployeeid(int employeeid) {
+		Employeeid = employeeid;
+	}
+
+	public String getEmployeename() {
+		return Employeename;
+	}
+
+	public void setEmployeename(String employeename) {
+		Employeename = employeename;
+	}
+public double getEmployeeSal() {
+		return EmployeeSal;
+	}
+public void setEmployeeSal(double employeeSal) {
+		EmployeeSal = employeeSal;
+	}
+public String getEmployeeDepartment() {
+		return EmployeeDepartment;
+	}
+public void setEmployeeDepartment(String employeeDepartment) {
+		EmployeeDepartment = employeeDepartment;
+	}
+public String getEmployeeemail() {
+		return Employeeemail;
+	}
+
+
+public void setEmployeeemail(String employeeemail) {
+		Employeeemail = employeeemail;
+	}
+public String getEmployeeaddress() {
+		return Employeeaddress;
+	}
+public void setEmployeeaddress(String employeeaddress) {
+		Employeeaddress = employeeaddress;
+	}
+
+@Override
+public String toString() {
+	return "Employee [Employeeid=" + Employeeid + ", Employeename=" + Employeename + ", EmployeeSal=" + EmployeeSal
+			+ ", EmployeeDepartment=" + EmployeeDepartment + ", Employeeemail=" + Employeeemail + ", Employeeaddress="
+			+ Employeeaddress + "]";
+}
+
+
+
+
+
+
+	
+}
