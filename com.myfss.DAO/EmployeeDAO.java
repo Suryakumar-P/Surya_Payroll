@@ -4,7 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.myfss.Beans.Employee;
+import com.myfss.Beans.EmployeePayDetails;
+import com.myfss.Beans.EmployeePayStandard;
 import com.myfss.Beans.Login;
+import com.myfss.Beans.Payslip;
 
 public class EmployeeDAO {
 
@@ -46,4 +49,41 @@ public class EmployeeDAO {
 	}
 	
 	
+	public static Payslip viewPaySlip(String EID) throws SQLException {
+		String query=String.format("select *from payslip from where login_id='%s'", EID);
+		ResultSet result=MySqlCon.select(query);
+		while(result.next()) {
+			return new Payslip(result.getFloat("total_pay"),result.getFloat("basic_pay"),result.getFloat("pf_deducted"),result.getFloat("tax_deducted"),result.getFloat("overtime_pay"),result.getFloat("allowances"),result.getFloat("hour_pay"),result.getString("month_pf_pay"));
+		}
+		return new Payslip();
+	}
+	
+	public static EmployeePayStandard viewEmployeePay(String EID) throws SQLException {
+		String query=String.format("select * from payslip where login_id='%s'", EID);
+		ResultSet result=MySqlCon.select(query);
+		while(result.next()) {
+			return new EmployeePayStandard(result.getString("employee_grade"),result.getFloat("basic_pay"),result.getFloat("tax_percentage"),result.getFloat("pf_percentage"),result.getFloat("per_hour_pay"),result.getFloat("per_hour_overtime_pay"),result.getFloat("total_allowances"));
+		}
+		return new EmployeePayStandard();
+	}
+	
+	public static EmployeePayDetails viewEmployeePayApplied(String EID) throws SQLException {
+		String query= String.format("select * from pay_details where user_id in (select user_id from user_personal_details where login_id='%s'", EID);
+		ResultSet result=MySqlCon.select(query);
+		while(result.next()) {
+			return new EmployeePayDetails(result.getFloat(0),result.getFloat(0),result.getString(0),result.getFloat(0));
+		}
+		return new EmployeePayDetails();
+	}
+	
+	public static int insertEmployeePayDetails(EmployeePayDetails emp,String EID) throws SQLException {
+		String selectQuery=String.format("select user_id from user_personal_details where login_id='%s'", EID);
+		ResultSet resultSet=MySqlCon.select(selectQuery);
+		int userId=0;
+		while(resultSet.next()) {
+			userId=resultSet.getInt("user_id");
+		}
+		String query=String.format("insert into pay_details (hours_worked,overtime_hours,month_of_application,allowance_applied,user_id) values(%f,%f,'%s',%f,%d)", emp.getHoursWorked(),emp.getOvertimeHours(),emp.getMonthOfApplication(),emp.getAllowanceApplied(),userId);
+		return MySqlCon.execueDML(query);
+	}
 }
