@@ -5,8 +5,8 @@ public class EmployeePayDetails {
 	private float overtimeHours;
 	private float allowanceApplied;
 	private String monthOfApplication;
-	public EmployeePayDetails(float hoursWorked, float overtimeHours, float allowanceApplied,
-			String monthOfApplication) {
+	public EmployeePayDetails(float hoursWorked, float overtimeHours, String monthOfApplication,
+			float allowanceApplied) {
 		super();
 		this.hoursWorked = hoursWorked;
 		this.overtimeHours = overtimeHours;
@@ -46,6 +46,12 @@ public class EmployeePayDetails {
 
 	public void setMonthOfApplication(String monthOfApplication) {
 		this.monthOfApplication = monthOfApplication;
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeePayDetails [hoursWorked=" + hoursWorked + ", overtimeHours=" + overtimeHours
+				+ ", allowanceApplied=" + allowanceApplied + ", monthOfApplication=" + monthOfApplication + "]";
 	}
 	
 	

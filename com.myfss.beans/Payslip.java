@@ -87,6 +87,13 @@ public class Payslip{
 	public void setMonthOfPay(String monthOfPay) {
 		this.monthOfPay = monthOfPay;
 	}
+
+	@Override
+	public String toString() {
+		return "Payslip [totalPay=" + totalPay + ", basicPay=" + basicPay + ", pfDeducted=" + pfDeducted
+				+ ", taxDeducted=" + taxDeducted + ", overtimePay=" + overtimePay + ", allowances=" + allowances
+				+ ", hourPay=" + hourPay + ", monthOfPay=" + monthOfPay + "]";
+	}
 	
 	
 

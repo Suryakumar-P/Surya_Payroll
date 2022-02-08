@@ -67,6 +67,15 @@ public class EmployeePayStandard {
 		public void setAllowances(float allowances) {
 			this.allowances = allowances;
 		}
+
+		@Override
+		public String toString() {
+			return "EmployeePayStandard [employeeGrade=" + employeeGrade + ", basicPay=" + basicPay + ", taxPercantage="
+					+ taxPercantage + ", pfPercentage=" + pfPercentage + ", hourPay=" + hourPay + ", overtimePay="
+					+ overtimePay + ", allowances=" + allowances + "]";
+		}
+		
+		
 		
 		
 		

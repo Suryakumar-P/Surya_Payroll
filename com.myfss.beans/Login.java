@@ -42,5 +42,10 @@ public class Login {
 		EID = eID;
 	}
 	
+	@Override
+	public String toString() {
+		return "Login [username=" + username + ", password=" + password + ", account=" + account + ", EID=" + EID + "]";
+	}
+	
 	
 }
