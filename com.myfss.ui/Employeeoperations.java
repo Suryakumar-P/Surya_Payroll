@@ -39,7 +39,8 @@ public static void main(String args[]) throws NumberFormatException, IOException
 	Employee[] e1 = new Employee[100];
 	//Adding the details of employee object into array list
 	ArrayList<Employee> list1 = new ArrayList<Employee>();
-	//try
+	try
+	{
 	switch(choice)
 	{
 	case 1: System.out.println("Enter the number of employees to be added");
@@ -94,10 +95,10 @@ public static void main(String args[]) throws NumberFormatException, IOException
 	 default:	System.exit(0);
 	}
 	}
-	/*catch(Exception e)
+	catch(Exception e)
 	{
 		System.out.println("Enter the correct data in correct format");
-	}*/
+	}
 
 }
-//}
+
