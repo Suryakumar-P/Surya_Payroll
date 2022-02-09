@@ -11,7 +11,7 @@ public class ViewPayslip {
 	 {
 		 EmployeeDAO ed1 = new EmployeeDAO();
 		 Employee e = EmployeeDAO.viewEmployee(employee);
-			if(e.getEmployeeId.equals(employeeId))
+			if((e.getEmployeeId).equals(employeeId))
 			{
 			Payslip p = EmployeeDAO.viewPaySlip(employeeId);
 			System.out.println(p);
