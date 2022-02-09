@@ -10,15 +10,31 @@ import com.myfss.beans.Employee;
 
 public class Employeeoperations{
 	Employee[] e1 = new Employee[100];
-public void addEmployee(String employeeId,String firstName,String lastName,String email,String phone,String date,String position,String doj,String employee_grade,String team,String company_name,int noofemp)
-{	
-	int res;
+public void addEmployee(String employeeId,String firstName,String lastName,String email,String phone,String date,String position,String doj,String employee_grade,String team,String company_name,)
+{	String employeeId;
+	String firstName;
+	String lastName;
+	String email;
+	String phone;
+	String date;
+	String login_id;
+	String position;
+	String doj;
+	String employee_grade;
+	String team;
+	String company_name;
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Hi Administrator!!");
+	int noofemp;
+ 	System.out.println("Enter the number of employees to be added:");
+	noofemp = Integer.parseInt(br.readLine());
+ 	int res;
 	ArrayList<Employee> list1 = new ArrayList<Employee>();
 	for(int i=0;i<noofemp;i++)
 	{
 	e1[i] = new Employee(employeeId,firstName,lastName,email,phone,date,position,doj,employee_grade,team,company_name);
 	list1.add(e1[i]);
-	res=.insertEmp(list1);
+	res=EmployeeDAO.insertEmp(list1);
 	if(res>0)
 	{
 	System.out.println("The Employee details are added successfully.");
@@ -38,7 +54,7 @@ public void deleteEmployee(String employeeId)
 	int res1;
 	char ch;
 	Employee ee = new Employee();
-	ee = ed1.viewEmployee(employeeId);
+	ee = EmployeeDAO.viewEmployee(employeeId);
 	if(ee==null)
 	{
 		System.out.println("Invalid employee id");
@@ -52,7 +68,7 @@ public void deleteEmployee(String employeeId)
 	s = ch.next();
 	if(ch=='Y'||ch=='y')
 	{
-	res1 = ed1.deleteEmp(employeeId);
+	res1 = EmployeeDAO.deleteEmp(employeeId);
 	if(res1>0)
 	{
 	System.out.println("Details deleted Successfully.");
@@ -72,7 +88,7 @@ public void deleteEmployee(String employeeId)
 public void searchEmployee(String employeeId)
 {
 	Employee ee = new Employee();
-	ee = ed1.viewEmployee(employeeId);
+	ee = EmployeeDAO.viewEmployee(employeeId);
 	if(ee==null)
 	{
 		System.out.println("Invalid employee id");
@@ -86,30 +102,7 @@ public void searchEmployee(String employeeId)
 public static void main(String args[]) throws NumberFormatException, IOException
 {
 //To handle exceptions
-    String employeeId;
-	String firstName;
-	String lastName;
-	String email;
-	String phone;
-	String date;
-	String login_id;
-	String position;
-	String doj;
-	String employee_grade;
-	String team;
-	String company_name;
-	int choice;
-	EmployeeDAO ed1 = new EmployeeDAO();
-	Scanner s = new Scanner(System.in);
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	System.out.println("Hi Administrator!!");
-	System.out.println("Enter the task you wanted to do:");
-	System.out.println("1.Add Employee");
-	System.out.println("2.Delete Employee");
-	System.out.println("3.Search Employee");
-	choice = s.nextInt();
-	int noofemp;
-	//Adding the details of employee object into array list
+    	//Adding the details of employee object into array list
 	
 	//try
 	switch(choice)
