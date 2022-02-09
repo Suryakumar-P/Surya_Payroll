@@ -74,7 +74,7 @@ public void addEmployee()
 	//The added details are displayed
 	System.out.println(list1);
 }
-public void deleteEmployee(String employeeId)
+public void deleteEmployee()
 {	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
 	system.out.println("You have chosen to delete employee details.");
@@ -114,7 +114,7 @@ public void deleteEmployee(String employeeId)
 	}
 	}
 }
-public void searchEmployee(String employeeId)
+public void searchEmployee()
 {	
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
