@@ -10,7 +10,6 @@ import com.myfss.beans.Employee;
 
 public class Employeeoperations{
 	Employee[] e1 = new Employee[100];
-	EmployeeDAO ed1 = new EmployeeDAO();
 public void addEmployee(String employeeId,String firstName,String lastName,String email,String phone,String date,String position,String doj,String employee_grade,String team,String company_name,int noofemp)
 {	
 	int res;
@@ -19,7 +18,7 @@ public void addEmployee(String employeeId,String firstName,String lastName,Strin
 	{
 	e1[i] = new Employee(employeeId,firstName,lastName,email,phone,date,position,doj,employee_grade,team,company_name);
 	list1.add(e1[i]);
-	res=ed1.insertEmp(list1);
+	res=.insertEmp(list1);
 	if(res>0)
 	{
 	System.out.println("The Employee details are added successfully.");
