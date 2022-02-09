@@ -37,6 +37,7 @@ public void addEmployee(String employeeId,String firstName,String lastName,Strin
 public void deleteEmployee(String employeeId)
 {
 	int res1;
+	char ch;
 	Employee ee = new Employee();
 	ee = ed1.viewEmployee(employeeId);
 	if(ee==null)
@@ -44,6 +45,13 @@ public void deleteEmployee(String employeeId)
 		System.out.println("Invalid employee id");
 	}
 	else
+	{
+	System.out.println("The employee details are:");
+	System.out.println(ee);
+	System.out.println("Do you want to delete this employee details(Y/N)?");
+	scanner s = new scanner(System.in);
+	s = ch.next();
+	if(ch=='Y'||ch=='y')
 	{
 	res1 = ed1.deleteEmp(employeeId);
 	if(res1>0)
@@ -53,6 +61,12 @@ public void deleteEmployee(String employeeId)
 	else
 	{
 	System.out.println("The details are not deleted!! Please try again");
+	}
+	}
+	else
+	{
+	System.out.println("You have decided not to delete");
+	return 0;
 	}
 	}
 }
