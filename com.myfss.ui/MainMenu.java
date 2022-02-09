@@ -12,6 +12,8 @@ public class MainMenu {
 		String choice;
 		boolean condition=false;
 		
+		
+		//Login-Logout Menu
 		do {
 		System.out.println("Would you like to login as an Admin(A) or Employee(E)?Please enter your choice");
 		choice =sc.nextLine();
@@ -34,6 +36,7 @@ public class MainMenu {
 		
 		
 		condition=true;
+		//Admin menu
 		if(choice=="A" || choice=="a") {
 		while(true){
 			 {
@@ -78,6 +81,8 @@ public class MainMenu {
 			}
 			}
 		}
+		
+		//Employee Menu
 		else if(choice=="E"||choice=="e") {
 			while(true) {
 				System.out.println("----------Hi Employee----------");
