@@ -1,0 +1,31 @@
+package com.myfss.ui;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import com.myfss.DAO.EmployeeDAO;
+import com.myfss.beans.Employee;
+
+public class Viewemployee {
+	public static boolean Viewemployeedetails() throws SQLException, IOException {
+		Employee ee = new Employee();
+		ee = EmployeeDAO.viewEmployees(null);
+		System.out.println("The employee details");
+		System.out.println(ee);
+		return false;
+		
+	}
+}
+
+
+
+
+//////please add dao
+public static Employee viewEmployees(String ee) throws SQLException {
+		String query=String.format("select *from user_personal_details");
+		ResultSet result=MySqlCon.select(query);
+		while(result.next()) {
+		return new Employee(result.getString("login_id"),result.getString("firstname"),result.getString("lastname"),result.getString("email_address"),result.getString("phone"),result.getString("dob"),result.getString("position"),result.getString("doj"),result.getString("employee_grade"),result.getString("team"),result.getString("comapny_name"));
+		}
+		return new Employee();
+	}
