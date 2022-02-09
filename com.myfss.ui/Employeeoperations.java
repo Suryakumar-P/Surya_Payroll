@@ -10,7 +10,7 @@ import com.myfss.beans.Employee;
 
 public class Employeeoperations{
 	Employee[] e1 = new Employee[100];
-public void addEmployee()
+public static void addEmployee()
 {	String employeeId;
 	String firstName;
 	String lastName;
@@ -74,7 +74,7 @@ public void addEmployee()
 	//The added details are displayed
 	System.out.println(list1);
 }
-public void deleteEmployee()
+public static void deleteEmployee()
 {	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
 	system.out.println("You have chosen to delete employee details.");
@@ -114,7 +114,7 @@ public void deleteEmployee()
 	}
 	}
 }
-public void searchEmployee()
+public static void searchEmployee()
 {	
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
