@@ -3,13 +3,11 @@ package com.myfss.DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.text.DefaultEditorKit.CopyAction;
-
-import com.myfss.Beans.Employee;
-import com.myfss.Beans.EmployeePayDetails;
-import com.myfss.Beans.EmployeePayStandard;
-import com.myfss.Beans.Login;
-import com.myfss.Beans.Payslip;
+import com.myfss.beans.Employee;
+import com.myfss.beans.EmployeePayDetails;
+import com.myfss.beans.EmployeePayStandard;
+import com.myfss.beans.Login;
+import com.myfss.beans.Payslip;
 
 public class EmployeeDAO {
 
@@ -29,8 +27,8 @@ public class EmployeeDAO {
 	}
 	
 	//Returns the login details of the EID given
-	public static Login passwordVerification(String EID) throws SQLException {
-		String query =String.format("select * from login_details where id='%s'",EID);
+	public static Login passwordVerification(String username) throws SQLException {
+		String query =String.format("select * from login_details where username='%s'",username);
 		ResultSet result=MySqlCon.select(query);
 		while(result.next()) {
 			return new Login(result.getString("username"),result.getString("password"),result.getString("account_type"),result.getString("id"));
@@ -102,6 +100,10 @@ public class EmployeeDAO {
 		String query= String.format("insert into payslip (total_pay,basic_pay,pf_deducted,tax_deducted,overtime_pay,allowances,hour_pay,month_of_pay,login_id) values(%f,%f,%f,%f,%f,%f,%f,'%s','%s')", pay.getTotalPay(),pay.getBasicPay(),pay.getPfDeducted(),pay.getTaxDeducted(),pay.getOvertimePay(),pay.getAllowances(),pay.getHourPay(),pay.getMonthOfPay(),eId);
 		return MySqlCon.execueDML(query);
 	}
-		
+	
+	public static int AddLogin(Login login) throws SQLException {
+		String query= String.format("insert into login_details(id,password,username,account_type) values('%s','%s','%s','%s')", login.getEID(),login.getPassword(),login.getUsername(),login.getIsAdmin());
+		return MySqlCon.execueDML(query);
+	}
 }
 
