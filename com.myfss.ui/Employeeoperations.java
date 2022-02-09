@@ -13,13 +13,22 @@ public class Employeeoperations{
 	EmployeeDAO ed1 = new EmployeeDAO();
 public void addEmployee(String employeeId,String firstName,String lastName,String email,String phone,String date,String position,String doj,String employee_grade,String team,String company_name,int noofemp)
 {	
+	int res;
 	ArrayList<Employee> list1 = new ArrayList<Employee>();
 	for(int i=0;i<noofemp;i++)
 	{
 	e1[i] = new Employee(employeeId,firstName,lastName,email,phone,date,position,doj,employee_grade,team,company_name);
 	list1.add(e1[i]);
-	ed1.insertEmp(list1);
+	res=ed1.insertEmp(list1);
+	if(res>0)
+	{
 	System.out.println("The Employee details are added successfully.");
+	}
+	else
+	{
+	System.out.println("The Employee details are not added!! Try again");
+	return 0;
+	}
 	}
 	System.out.println("The added deta1ils are displayed below");
 	//The added details are displayed
@@ -27,6 +36,7 @@ public void addEmployee(String employeeId,String firstName,String lastName,Strin
 }
 public void deleteEmployee(String employeeId)
 {
+	int res1;
 	Employee ee = new Employee();
 	ee = ed1.viewEmployee(employeeId);
 	if(ee==null)
@@ -35,8 +45,15 @@ public void deleteEmployee(String employeeId)
 	}
 	else
 	{
-	ed1.deleteEmp(employeeId);
+	res1 = ed1.deleteEmp(employeeId);
+	if(res1>0)
+	{
 	System.out.println("Details deleted Successfully.");
+	}
+	else
+	{
+	System.out.println("The details are not deleted!! Please try again");
+	}
 	}
 }
 public void searchEmployee(String employeeId)
