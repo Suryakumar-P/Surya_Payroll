@@ -75,7 +75,7 @@ public void addEmployee()
 	System.out.println(list1);
 }
 public void deleteEmployee(String employeeId)
-{	
+{	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
 	system.out.println("You have chosen to delete employee details.");
 	System.out.println("Enter the employee id to be deleted");
@@ -116,6 +116,7 @@ public void deleteEmployee(String employeeId)
 }
 public void searchEmployee(String employeeId)
 {	
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
 	System.out.println("you have chosen to search employee:");
 	System.out.println("Enter the employee id to search for the employee:");
@@ -134,10 +135,7 @@ public void searchEmployee(String employeeId)
 }
 public static void main(String args[]) throws NumberFormatException, IOException
 {
-//To handle exceptions
-    	//Adding the details of employee object into array list
-	
-	//try
+
 	
 }
 }
