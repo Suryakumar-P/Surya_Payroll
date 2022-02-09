@@ -3,28 +3,32 @@ package com.myfss.ui;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.mysql.cj.ServerPreparedQueryTestcaseGenerator;
+import com.myfss.beans.Login;
 
 public class MainMenu {
-
+	public static String EmployeeId;
 	public static void main(String[] args) throws SQLException {
 		Scanner sc=new Scanner(System.in);
-		String choice;
-		boolean condition=false;
-		
-		
+		String choice="";
+		boolean condition=false;	
+		Login login=null;
 		//Login-Logout Menu
 		do {
-		System.out.println("Would you like to login as an Admin(A) or Employee(E)?Please enter your choice");
-		choice =sc.nextLine();
-		switch (choice) {
-		case "A":
-		case "a":
-			//enter your Admin login function|| condition=Adminloginmethod();
+		System.out.println("Enter the task you wanted to do:");
+		System.out.println("1.Log in");
+		System.out.println("2.Sign in");
+		System.out.println("0.Exit");
+		int c =sc.nextInt();
+		switch (c) {
+		case 1:
+			login=loginfunc();
 			break;
-		case "E":
-		case "e":
-			//enter your employee login function || condition=EmployeeLoginMethod();
+		case 2:
+			
+			break;
+		case 0:
+			System.out.println("Program exited");
+			System.exit(0);
 		default:
 			System.out.println("Invalid choice. Please enter again");
 			break;
@@ -37,7 +41,7 @@ public class MainMenu {
 		
 		condition=true;
 		//Admin menu
-		if(choice=="A" || choice=="a") {
+		if(login!=null && login.getIsAdmin()=="Admin") {
 		while(true){
 			 {
 				System.out.println("----------Hi Administrator----------");
@@ -83,7 +87,7 @@ public class MainMenu {
 		}
 		
 		//Employee Menu
-		else if(choice=="E"||choice=="e") {
+		else if(login!=null && login.getIsAdmin()=="Employee") {
 			while(true) {
 				System.out.println("----------Hi Employee----------");
 				System.out.println("Enter the task you wanted to do:");
