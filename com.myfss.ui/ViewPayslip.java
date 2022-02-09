@@ -7,9 +7,12 @@ public class ViewPayslip {
 
 	/**
 	 * @param args
-	 */public static void viewPslip(String employeeId)
+	 */public static void viewPayslip()
 	 {
-		 EmployeeDAO ed1 = new EmployeeDAO();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String employeeId;
+		System.out.println("Enter the Employee ID to view the payslip:");
+		employeeId = br.readLine();
 		 Employee e = EmployeeDAO.viewEmployee(employee);
 			if((e.getEmployeeId).equals(employeeId))
 			{
@@ -23,11 +26,6 @@ public class ViewPayslip {
 	 }
 	
 	public static void main(String[] args) {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String employeeId;
-		System.out.println("Enter the Employee ID to view the payslip:");
-		employeeId = br.readLine();
-		viewPslip(employeeId);
 		
 	}
 }
