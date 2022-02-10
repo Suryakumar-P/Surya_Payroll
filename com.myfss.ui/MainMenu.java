@@ -6,7 +6,6 @@ import java.util.Scanner;
 import com.myfss.beans.Login;
 
 public class MainMenu {
-	public static String EmployeeId;
 	public static void main(String[] args) throws SQLException {
 		Scanner sc=new Scanner(System.in);
 		String choice="";
@@ -21,10 +20,12 @@ public class MainMenu {
 		int c =sc.nextInt();
 		switch (c) {
 		case 1:
-			login=loginfunc();
+			login=Admin.Adminloginmethod();
+			if(login!=null)
+				condition=true;
 			break;
 		case 2:
-			
+			condition=Admin.createloginmethod();
 			break;
 		case 0:
 			System.out.println("Program exited");
@@ -58,12 +59,16 @@ public class MainMenu {
 				sc.nextLine();
 				switch (c) {
 				case 1:
+					Employeeoperations.addEmployee();
 					break;
 				case 2:
+					Employeeoperations.deleteEmployee();
 					break;
 				case 3:
+					Employeeoperations.searchEmployee();
 					break;
 				case 4:
+					Viewemployee.Viewemployeedetails();
 					break;
 				case 5:
 					break;
@@ -99,10 +104,12 @@ public class MainMenu {
 				sc.nextLine();
 				switch (c) {
 				case 1:
+					Viewemployee.Viewemployeedetails();
 					break;
 				case 2:
 					break;
 				case 3:
+					ViewPayslip.viewPayslip();
 					break;
 				case 0:
 					System.out.println("Program exited");

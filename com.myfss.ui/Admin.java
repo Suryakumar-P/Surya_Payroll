@@ -8,7 +8,7 @@ import com.myfss.beans.Login;
 public class Admin {
 	static EmployeeDAO ed1;
 
-	public static boolean Adminloginmethod() throws SQLException{
+	public static Login Adminloginmethod() throws SQLException{
 		ed1 = new EmployeeDAO();
 		try (Scanner s = new Scanner(System.in)) {
 			System.out.print("Enter the id :");
@@ -27,7 +27,7 @@ public class Admin {
 				login = EmployeeDAO.passwordVerification(id);
 				if(login.getUsername()!=null) {
 					if(login.getUsername().equals(name) && login.getPassword().equals(password)) {
-						return true;
+						return login;
 					}
 				}
 			} catch (SQLException e) {
@@ -36,7 +36,7 @@ public class Admin {
 			}
 		}
 		
-		return false;
+		return null;
 		/*if(validation(id,name,password,account_type)) {
 	}*/
 }

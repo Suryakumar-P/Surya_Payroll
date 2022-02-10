@@ -1,3 +1,6 @@
+package com.myfss.ui;
+
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -7,7 +10,7 @@ public class ViewPayslip {
 
 	/**
 	 * @param args
-	 */public static void viewPayslip throws IOException()
+	 */public static void viewPayslip() throws IOException
 	 {
 		 try
 		 {
