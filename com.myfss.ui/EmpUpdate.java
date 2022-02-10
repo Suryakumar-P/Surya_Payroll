@@ -11,12 +11,14 @@ import java.sql.Statement;
 public class  EmpUpdate {
 
 	//Drivers name
-	 static final String DB_URL = "jdbc:mysql://localhost:3306";
-	   static final String USER = "root";
-	   static final String PASS = "abcd";
-	   static final String QUERY = "SELECT * FROM project.employeeview";
 	 
+	 
+	public static boolean updateEmp()
 	   {
+		String DB_URL = "jdbc:mysql://localhost:3306";
+	   String USER = "root";
+	   String PASS = "abcd";
+	   String QUERY = "SELECT * FROM project.employeeview";
 		   try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 	         Statement stmt = conn.createStatement();
 		      ) {
