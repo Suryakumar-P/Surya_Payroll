@@ -8,10 +8,10 @@ import com.myfss.beans.Employee;
 
 public class Employeeoperations{
 	Employee[] e1 = new Employee[100];
-public static boolean addEmployee()
-{	try
+public static boolean addEmployee()  //Method for adding employee
+{	try             //To handle Exceptions
 	{
-	String employeeId;
+	String employeeId;     //Declaring the data for adding employees
 	String firstName;
 	String lastName;
 	String email;
@@ -25,12 +25,12 @@ public static boolean addEmployee()
 	String company_name;
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	System.out.println("Hi Administrator!!");
-	int noofemp;
+	int noofemp;  // variable to add more than one employee
  	System.out.println("Enter the number of employees to be added:");
 	noofemp = Integer.parseInt(br.readLine());
  	int res;
-	ArrayList<Employee> list1 = new ArrayList<Employee>();
-	System.out.println("Enter the Employee id:");
+	ArrayList<Employee> list1 = new ArrayList<Employee>();    // creating arraylist to store the data as employee object type.
+	System.out.println("Enter the Employee id:");             // Getting input from the employee
 	employeeId = br.readLine();
 	System.out.println("Enter the firstName of employee:");
 	firstName = br.readLine();
@@ -57,9 +57,9 @@ public static boolean addEmployee()
 
 	for(int i=0;i<noofemp;i++)
 	{
-	e1[i] = new Employee(employeeId,firstName,lastName,email,phone,date,position,doj,employee_grade,team,company_name);
-	list1.add(e1[i]);
-	res=EmployeeDAO.insertEmp(list1);
+	e1[i] = new Employee(employeeId,firstName,lastName,email,phone,date,position,doj,employee_grade,team,company_name);  //assigning values to employee object
+	list1.add(e1[i]);			// adding employee object into list.
+	res=EmployeeDAO.insertEmp(list1);	//checking whether the data is added or not.
 	if(res>0)
 	{
 	System.out.println("The Employee details are added successfully.");
