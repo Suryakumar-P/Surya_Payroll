@@ -20,9 +20,9 @@ public class ViewPayslip {
 		System.out.println("Enter the Employee ID to view the payslip:");
 		employeeId = br.readLine();
 		System.out.println("Enter the month of the payslip");
-		String dateString=br.readLine();
-		 Employee e = EmployeeDAO.viewEmployee(employeeId);
-			if((e.getEmployeeId).equals(employeeId))
+		String dateString=br.readLine();       //Getting date and employee id from the employee
+		 Employee e = EmployeeDAO.viewEmployee(employeeId); 
+			if((e.getEmployeeId).equals(employeeId))  //Checking whether the employee id is valid or not.
 			{
 			Payslip p = EmployeeDAO.viewPaySlip(employeeId,dateString);
 			System.out.println(p);
