@@ -9,6 +9,10 @@ import com.myfss.beans.EmployeePayStandard;
 import com.myfss.beans.Login;
 import com.myfss.beans.Payslip;
 
+
+//////Task T2- Surya
+
+
 public class EmployeeDAO {
 
 	//Deletes Employee with the given EID
@@ -54,11 +58,11 @@ public class EmployeeDAO {
 	}
 	
 	//Returns generated payslip details
-	public static Payslip viewPaySlip(String EID) throws SQLException {
-		String query=String.format("select *from payslip from where login_id='%s'", EID);
+	public static Payslip viewPaySlip(String EID,String date) throws SQLException {
+		String query=String.format("select *from payslip where login_id='%s' and month_of_pay='%s'", EID,date);
 		ResultSet result=MySqlCon.select(query);
 		while(result.next()) {
-			return new Payslip(result.getFloat("total_pay"),result.getFloat("basic_pay"),result.getFloat("pf_deducted"),result.getFloat("tax_deducted"),result.getFloat("overtime_pay"),result.getFloat("allowances"),result.getFloat("hour_pay"),result.getString("month_pf_pay"));
+			return new Payslip(result.getFloat("total_pay"),result.getFloat("basic_pay"),result.getFloat("pf_deducted"),result.getFloat("tax_deducted"),result.getFloat("overtime_pay"),result.getFloat("allowances"),result.getFloat("hour_pay"),result.getString("month_of_pay"));
 		}
 		return new Payslip();
 	}

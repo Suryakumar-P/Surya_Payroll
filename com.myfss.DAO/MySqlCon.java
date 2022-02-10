@@ -7,6 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
+//////Task T2- Surya
+
+
+
 public class MySqlCon {
 
 		//create a static connection
@@ -21,13 +27,13 @@ public class MySqlCon {
 	}
 		
 		
-	//JDBC code for select statment execution
+	//JDBC code for select statement execution
 	public static ResultSet select(String query) throws SQLException {
 		Statement statement = conn.createStatement();
 		return statement.executeQuery(query);
 	}
 	
-	//JDBC code for DML statements execution
+	//JDBC code for executing SQL DML(insert,delete,update) statements)
 	public static int execueDML(String query) throws SQLException {
 		PreparedStatement statement = conn.prepareStatement(query);
 		return statement.executeUpdate();
