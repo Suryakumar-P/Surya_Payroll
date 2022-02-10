@@ -10,8 +10,10 @@ import com.myfss.beans.Employee;
 
 public class Employeeoperations{
 	Employee[] e1 = new Employee[100];
-public static void addEmployee()
-{	String employeeId;
+public static void addEmployee throws IOException()
+{	try
+	{
+	String employeeId;
 	String firstName;
 	String lastName;
 	String email;
@@ -73,9 +75,17 @@ public static void addEmployee()
 	System.out.println("The added deta1ils are displayed below");
 	//The added details are displayed
 	System.out.println(list1);
+	br.close();
 }
-public static void deleteEmployee()
-{	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ catch(Exception e)
+ {
+	 System.out.println(e);
+ }
+}
+public static void deleteEmployee throws IOException()
+{	try
+	{	
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
 	system.out.println("You have chosen to delete employee details.");
 	System.out.println("Enter the employee id to be deleted");
@@ -93,8 +103,7 @@ public static void deleteEmployee()
 	System.out.println("The employee details are:");
 	System.out.println(ee);
 	System.out.println("Do you want to delete this employee details(Y/N)?");
-	scanner s = new scanner(System.in);
-	s = ch.next();
+	ch = br.readLine();
 	if(ch=='Y'||ch=='y')
 	{
 	res1 = EmployeeDAO.deleteEmp(employeeId);
@@ -113,9 +122,17 @@ public static void deleteEmployee()
 	return 0;
 	}
 	}
+	br.close();
+}
+ catch(Exception e)
+ {
+	 System.out.println(e);
+ }
 }
 public static void searchEmployee()
 {	
+	try
+	{
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String employeeId;
 	System.out.println("you have chosen to search employee:");
@@ -131,6 +148,12 @@ public static void searchEmployee()
 	{
 	System.out.println("The employee details are:");
 	System.out.println(ee);
+	}
+	br.close();
+	}
+	catch(Exception e)
+	{
+		System.out.println(e);
 	}
 }
 public static void main(String args[]) throws NumberFormatException, IOException
