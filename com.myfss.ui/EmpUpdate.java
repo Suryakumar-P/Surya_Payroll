@@ -33,7 +33,7 @@ public class  EmpUpdate {
 				
 				e.printStackTrace();
 			}
-			
+			return true;
 		   
 		}
 	   public static void main(String[] args) {
