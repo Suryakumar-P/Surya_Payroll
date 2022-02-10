@@ -2,9 +2,10 @@ package com.myfss.ui;
 
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
-import com.myfss.Beans.*;
+import com.myfss.beans.*;
 
 public class ViewPayslip {
 
@@ -18,10 +19,12 @@ public class ViewPayslip {
 		String employeeId;
 		System.out.println("Enter the Employee ID to view the payslip:");
 		employeeId = br.readLine();
-		 Employee e = EmployeeDAO.viewEmployee(employee);
+		System.out.println("Enter the month of the payslip");
+		String dateString=sc.nextLine();
+		 Employee e = EmployeeDAO.viewEmployee(employeeId);
 			if((e.getEmployeeId).equals(employeeId))
 			{
-			Payslip p = EmployeeDAO.viewPaySlip(employeeId);
+			Payslip p = EmployeeDAO.viewPaySlip(employeeId,dateString);
 			System.out.println(p);
 			br.close();
 			}

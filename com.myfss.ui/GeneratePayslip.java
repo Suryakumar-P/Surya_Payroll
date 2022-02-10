@@ -1,6 +1,7 @@
 package com.myfss.ui;
 
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import com.myfss.DAO.EmployeeDAO;
@@ -16,6 +17,12 @@ public class GeneratePayslip {
 			String eId= sc.nextLine();
 			System.out.println("Enter the date of the payslip generation");
 			String dateString=sc.nextLine();
+			
+			Payslip exist=EmployeeDAO.viewPaySlip(eId, dateString);
+			if(exist.getMonthOfPay()!=null) {
+				System.out.println("Entry Already exists. Try again");
+				return false;
+			}
 			
 			//Get employeestandard and details from query
 			EmployeePayStandard std=EmployeeDAO.viewEmployeePay(eId);
@@ -40,11 +47,12 @@ public class GeneratePayslip {
 			
 			//Insert the calculated values
 			EmployeeDAO.insertPayslip(pay, eId);
+			System.out.println(pay);
 			System.out.println("Payslip generated. Thank you.");
 			return true;
 		}
 		
-//		public static void main(String args[]) throws SQLException {
-//			createPayslip();
-//		}
+		public static void main(String args[]) throws SQLException {
+			createPayslip();
+		}
 }
