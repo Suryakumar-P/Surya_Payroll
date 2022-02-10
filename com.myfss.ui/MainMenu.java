@@ -78,11 +78,13 @@ public class MainMenu {
 					condition=Viewemployee.Viewemployeedetails();
 					break;
 				case 5:
+					condition=Updateprofile.Updateprofiledetails();
 					break;
 				case 6:
 					condition=GeneratePayslip.createPayslip();
 					break;
 				case 7:
+					//modulenotyetprovided
 					break;
 				case 0:
 					System.out.println("Program exited");
@@ -114,7 +116,7 @@ public class MainMenu {
 					condition=Viewemployee.Viewemployeedetails();
 					break;
 				case 2:
-					
+					//Module not yet provided
 					break;
 				case 3:
 					condition=ViewPayslip.viewPayslip();
