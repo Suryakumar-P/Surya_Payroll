@@ -9,6 +9,11 @@ import com.myfss.beans.EmployeePayDetails;
 import com.myfss.beans.EmployeePayStandard;
 import com.myfss.beans.Payslip;
 
+
+////Taks T16-Surya
+
+
+
 public class GeneratePayslip {
 		public static boolean createPayslip() throws SQLException {
 			//get input of date and Employee id
@@ -47,7 +52,6 @@ public class GeneratePayslip {
 			
 			//Insert the calculated values
 			EmployeeDAO.insertPayslip(pay, eId);
-			System.out.println(pay);
 			System.out.println("Payslip generated. Thank you.");
 			return true;
 		}

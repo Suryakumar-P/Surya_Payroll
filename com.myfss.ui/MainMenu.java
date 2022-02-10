@@ -1,12 +1,18 @@
 package com.myfss.ui;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.myfss.beans.Login;
 
+
+//////////Task T18- Surya
+
+
+
 public class MainMenu {
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException,IOException {
 		Scanner sc=new Scanner(System.in);
 		String choice="";
 		boolean condition=false;	
@@ -41,6 +47,7 @@ public class MainMenu {
 		
 		
 		condition=true;
+		
 		//Admin menu
 		if(login!=null && login.getIsAdmin()=="Admin") {
 		while(true){
@@ -59,16 +66,16 @@ public class MainMenu {
 				sc.nextLine();
 				switch (c) {
 				case 1:
-					Employeeoperations.addEmployee();
+					condition=Employeeoperations.addEmployee();
 					break;
 				case 2:
-					Employeeoperations.deleteEmployee();
+					condition=Employeeoperations.deleteEmployee();
 					break;
 				case 3:
-					Employeeoperations.searchEmployee();
+					condition=Employeeoperations.searchEmployee();
 					break;
 				case 4:
-					Viewemployee.Viewemployeedetails();
+					condition=Viewemployee.Viewemployeedetails();
 					break;
 				case 5:
 					break;
@@ -104,12 +111,13 @@ public class MainMenu {
 				sc.nextLine();
 				switch (c) {
 				case 1:
-					Viewemployee.Viewemployeedetails();
+					condition=Viewemployee.Viewemployeedetails();
 					break;
 				case 2:
+					
 					break;
 				case 3:
-					ViewPayslip.viewPayslip();
+					condition=ViewPayslip.viewPayslip();
 					break;
 				case 0:
 					System.out.println("Program exited");
