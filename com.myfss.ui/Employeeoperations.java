@@ -92,8 +92,8 @@ public static boolean deleteEmployee throws IOException()
 	int res1;
 	char ch;
 	Employee ee = new Employee();
-	ee = EmployeeDAO.viewEmployee(employeeId);
-	if(ee==null)
+	ee = EmployeeDAO.viewEmployee(employeeId); //assigning the returned employee object to another employee object
+	if(ee==null)       // checking whether the employee object is null
 	{
 		System.out.println("Invalid employee id");
 		return false;
@@ -104,7 +104,7 @@ public static boolean deleteEmployee throws IOException()
 	System.out.println(ee);
 	System.out.println("Do you want to delete this employee details(Y/N)?");
 	ch = br.readLine();
-	if(ch=='Y'||ch=='y')
+	if(ch=='Y'||ch=='y') // If the user accepts to delete the data 
 	{
 	res1 = EmployeeDAO.deleteEmp(employeeId);
 	if(res1>0)
@@ -118,7 +118,7 @@ public static boolean deleteEmployee throws IOException()
 	return false;
 	}
 	}
-	else
+	else                                // If the user refuses to delete the data
 	{
 	System.out.println("You have decided not to delete");
 	return false;
@@ -141,8 +141,8 @@ public static boolean searchEmployee throws IOException()
 	System.out.println("Enter the employee id to search for the employee:");
 	employeeId = br.readLine();
 	Employee ee = new Employee();
-	ee = EmployeeDAO.viewEmployee(employeeId);
-	if(ee==null)
+	ee = EmployeeDAO.viewEmployee(employeeId);        //assigning the returned employee object to another employee object
+	if(ee==null)       // checking whether the employee object is null
 	{
 		System.out.println("Invalid employee id or employee not available");
 		return false;
