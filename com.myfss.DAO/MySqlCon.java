@@ -8,9 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-
 //////Task T2- Surya
-
 
 
 public class MySqlCon {
