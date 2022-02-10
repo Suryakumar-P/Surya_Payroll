@@ -7,8 +7,10 @@ public class ViewPayslip {
 
 	/**
 	 * @param args
-	 */public static void viewPayslip()
+	 */public static void viewPayslip throws IOException()
 	 {
+		 try
+		 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String employeeId;
 		System.out.println("Enter the Employee ID to view the payslip:");
@@ -18,11 +20,17 @@ public class ViewPayslip {
 			{
 			Payslip p = EmployeeDAO.viewPaySlip(employeeId);
 			System.out.println(p);
+			br.close();
 			}
 			else
 			{
 				System.out.println("The employee Id is invalid. Please Enter a valid Employee Id.");
 			}	 
+		 }
+		 catch(Exception e)
+		 {
+			 System.out.println(e);
+		 }
 	 }
 	
 	public static void main(String[] args) {
