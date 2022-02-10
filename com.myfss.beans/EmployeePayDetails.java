@@ -1,4 +1,7 @@
-package com.myfss.Beans;
+package com.myfss.beans;
+
+/////Task T2- Surya
+
 
 public class EmployeePayDetails {
 	private float hoursWorked;

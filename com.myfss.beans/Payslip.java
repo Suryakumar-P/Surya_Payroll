@@ -1,4 +1,8 @@
-package com.myfss.Beans;
+package com.myfss.beans;
+
+
+/////Task T2- Surya
+
 
 public class Payslip{
 	private float totalPay;
