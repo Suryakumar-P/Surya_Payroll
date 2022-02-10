@@ -116,7 +116,7 @@ public class MainMenu {
 					condition=Viewemployee.Viewemployeedetails();
 					break;
 				case 2:
-					//Module not yet provided
+					condition=EmpUpdate.updateEmp();
 					break;
 				case 3:
 					condition=ViewPayslip.viewPayslip();
