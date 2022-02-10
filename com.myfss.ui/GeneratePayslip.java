@@ -13,7 +13,6 @@ import com.myfss.beans.Payslip;
 ////Taks T16-Surya
 
 
-
 public class GeneratePayslip {
 		public static boolean createPayslip() throws SQLException {
 			//get input of date and Employee id
