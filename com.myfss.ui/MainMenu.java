@@ -84,7 +84,7 @@ public class MainMenu {
 					condition=GeneratePayslip.createPayslip();
 					break;
 				case 7:
-					//modulenotyetprovided
+					condition=DbWorkinghours.workingHours();
 					break;
 				case 0:
 					System.out.println("Program exited");
