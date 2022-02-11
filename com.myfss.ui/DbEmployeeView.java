@@ -10,7 +10,7 @@ package FSS.ui;
 	import java.sql.ResultSet;
 import java.sql.SQLException;
 
-	public static boolean DbEmployeeView {
+	public static boolean ViewEmployee {
 	public static void main (String[] args) throws Exception {
 
 
