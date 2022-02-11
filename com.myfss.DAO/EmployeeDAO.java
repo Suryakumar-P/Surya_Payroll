@@ -12,6 +12,7 @@ import com.myfss.beans.Payslip;
 
 //////Task T2- Surya
 
+
 public class EmployeeDAO {
 
 	//Deletes Employee with the given EID
@@ -23,15 +24,15 @@ public class EmployeeDAO {
 	//Insert employee to the table
 	public static int insertEmp(Employee emp) throws SQLException {
 		String query=String.format
-				("insert into user_personal_details(firstname,lastname,phone,email,dob,login_id,position,doj,employee_grade,team,company_name) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", 
+				("insert into user_personal_details(firstname,lastname,phone,email_address,dob,login_id,position,doj,employee_grade,team,company_name) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", 
 						emp.getFirstName(),emp.getLastName(),emp.getPhoneNumber(),emp.getEmail(),emp.getDob(),
 						emp.getEmployeeId(),emp.getPosition(),emp.getDoj(),emp.getEmployeeGrade(),emp.getTeam(),emp.getCompanyName());	
 		return MySqlCon.execueDML(query);
 	}
 	
 	//Returns the login details of the EID given
-	public static Login passwordVerification(String username) throws SQLException {
-		String query =String.format("select * from login_details where username='%s'",username);
+	public static Login passwordVerification(String EID) throws SQLException {
+		String query =String.format("select * from login_details where id='%s'",EID);
 		ResultSet result=MySqlCon.select(query);
 		while(result.next()) {
 			return new Login(result.getString("username"),result.getString("password"),result.getString("account_type"),result.getString("id"));
@@ -105,7 +106,7 @@ public class EmployeeDAO {
 	}
 	
 	public static int AddLogin(Login login) throws SQLException {
-		String query= String.format("insert into login_details(id,password,username,account_type) values('%s','%s','%s','%s')", login.getEID(),login.getPassword(),login.getUsername(),login.getIsAdmin());
+		String query= String.format("insert into login_details(id,password,username,account_type) values('%s','%s','%s','%s')", login.getEID(),login.getPassword(),login.getUsername(),login.getAccount());
 		return MySqlCon.execueDML(query);
 	}
 }
