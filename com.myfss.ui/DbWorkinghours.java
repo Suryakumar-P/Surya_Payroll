@@ -14,7 +14,7 @@ package FSS.ui;
 	private static float Allowance_applied;
 	private static int Empid;
 
-	public static void main (String[] args) throws Exception {
+	public static boolean workingHours () throws Exception {
 			
 			
 			try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
@@ -51,7 +51,7 @@ package FSS.ui;
 		    
 			}catch(Exception e) {System.out.println(e);
 			}
-				
+		return true;
 	
 	}
 
