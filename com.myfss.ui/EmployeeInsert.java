@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 import com.MyFSS.beans.EmpBeans;
 
-public class EmployeeInsert {
+public static boolean InsertEmployee {
 
 	 static final String DB_URL = "jdbc:mysql://localhost:3306";
 	   static final String USER = "root";
@@ -80,6 +80,7 @@ public class EmployeeInsert {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		   return true;
 
 	}
 	   public static void main(String[] args) {
