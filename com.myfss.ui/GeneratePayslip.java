@@ -34,12 +34,17 @@ public class GeneratePayslip {
 			String dateString=sc.nextLine();
 			DateFormat formatter;
 		    Date date,dateMin,dateMax;
+		    try {
 		    formatter = new SimpleDateFormat("MM/yyyy");
 		    date = (Date) formatter.parse(dateString);
 		    dateMin = (Date) formatter.parse("01/2000");
 		    dateMax=(Date) formatter.parse("02/2022");
 		    if(!(date.after(dateMin) && date.before(dateMax))) {
 		    	System.out.println("Invalid date. Please select a date between 01/2000 to 02/2022");
+		    	return false;
+		    }
+		    }catch(Exception e) {
+		    	System.out.println("Invalid date");
 		    	return false;
 		    }
 			
