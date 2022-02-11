@@ -12,7 +12,11 @@ import com.myfss.beans.Employee;
 public class Employeeoperations{
 	static Employee[] e1 = new Employee[100];
 public static boolean addEmployee()  //Method for adding employee
-{	try             //To handle Exceptions
+{	
+	boolean a;
+	a=Admin.createloginmethod;
+
+	try             //To handle Exceptions
 	{
 	String employeeId;     //Declaring the data for adding employees
 	String firstName;
