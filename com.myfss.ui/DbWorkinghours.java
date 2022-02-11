@@ -7,7 +7,7 @@ package FSS.ui;
 	import java.sql.DriverManager;
 	import java.sql.PreparedStatement;
 
-	public class DbWorkinghours {
+	public class Workinghours {
 	private static float Hours_worked;
 	private static float Overtime_hours;
 	private static String Month_of_application;
