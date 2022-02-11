@@ -1,8 +1,13 @@
 package com.myfss.ui;
 
 import java.sql.SQLException;
-import java.util.Iterator;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.myfss.DAO.EmployeeDAO;
 import com.myfss.beans.EmployeePayDetails;
@@ -14,13 +19,29 @@ import com.myfss.beans.Payslip;
 
 
 public class GeneratePayslip {
-		public static boolean createPayslip() throws SQLException {
+		public static boolean createPayslip() throws SQLException, ParseException {
 			//get input of date and Employee id
 			Scanner sc=new Scanner(System.in);
 			System.out.println("Enter the employee Id of the person you want to generate payslip:");
 			String eId= sc.nextLine();
+			Pattern p = Pattern.compile("[E][0-9]{3}");
+			Matcher m = p.matcher(eId);  
+			if(!m.matches()) {
+				System.out.println("Employee id is invalid");
+				return false;
+			}
 			System.out.println("Enter the date of the payslip generation");
 			String dateString=sc.nextLine();
+			DateFormat formatter;
+		    Date date,dateMin,dateMax;
+		    formatter = new SimpleDateFormat("MM/yyyy");
+		    date = (Date) formatter.parse(dateString);
+		    dateMin = (Date) formatter.parse("01/2000");
+		    dateMax=(Date) formatter.parse("02/2022");
+		    if(!(date.after(dateMin) && date.before(dateMax))) {
+		    	System.out.println("Invalid date. Please select a date between 01/2000 to 02/2022");
+		    	return false;
+		    }
 			
 			Payslip exist=EmployeeDAO.viewPaySlip(eId, dateString);
 			if(exist.getMonthOfPay()!=null) {
@@ -55,7 +76,7 @@ public class GeneratePayslip {
 			return true;
 		}
 		
-		public static void main(String args[]) throws SQLException {
+		public static void main(String args[]) throws SQLException, ParseException {
 			createPayslip();
 		}
 }
