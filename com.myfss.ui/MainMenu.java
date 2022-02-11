@@ -1,9 +1,10 @@
 package com.myfss.ui;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Scanner;
-
 import com.myfss.beans.Login;
 
 
@@ -12,18 +13,19 @@ import com.myfss.beans.Login;
 
 
 public class MainMenu {
-	public static void main(String[] args) throws SQLException,IOException {
-		Scanner sc=new Scanner(System.in);
-		String choice="";
+	static BufferedReader br;
+	public static void main(String[] args) throws IOException, SQLException {
 		boolean condition=false;	
 		Login login=null;
+		int c=-1;
 		//Login-Logout Menu
-		do {
+		while(!condition){
 		System.out.println("Enter the task you wanted to do:");
 		System.out.println("1.Log in");
 		System.out.println("2.Sign in");
 		System.out.println("0.Exit");
-		int c =sc.nextInt();
+		br = new BufferedReader(new InputStreamReader(System.in));
+		c =Integer.parseInt(br.readLine());
 		switch (c) {
 		case 1:
 			login=Admin.Adminloginmethod();
@@ -35,21 +37,22 @@ public class MainMenu {
 			break;
 		case 0:
 			System.out.println("Program exited");
-			System.exit(0);
+			return;
 		default:
 			System.out.println("Invalid choice. Please enter again");
 			break;
 		}
-		if(condition) {
+		if(!condition) {
 			System.out.println("Login failed. Please try again");
 		}
-		}while(!condition);
+		}
 		
 		
 		condition=true;
-		
+		System.out.println(login.getAccount().equals("Admin"));
 		//Admin menu
-		if(login!=null && login.getIsAdmin()=="Admin") {
+		if(login!=null && login.getAccount().equals("Admin")) {
+			System.out.println("Println");
 		while(true){
 			 {
 				System.out.println("----------Hi Administrator----------");
@@ -62,8 +65,8 @@ public class MainMenu {
 				System.out.println("6.Generate Payslip");
 				System.out.println("7.Enter working hours");
 				System.out.println("0.Exit");
-				int c=sc.nextInt();
-				sc.nextLine();
+				br = new BufferedReader(new InputStreamReader(System.in));
+				c =Integer.parseInt(br.readLine());
 				switch (c) {
 				case 1:
 					condition=Employeeoperations.addEmployee();
@@ -88,7 +91,7 @@ public class MainMenu {
 					break;
 				case 0:
 					System.out.println("Program exited");
-					System.exit(0);
+					return;
 				default:
 					System.out.println("Invalid choice try again");
 					break;
@@ -101,7 +104,7 @@ public class MainMenu {
 		}
 		
 		//Employee Menu
-		else if(login!=null && login.getIsAdmin()=="Employee") {
+		else if(login!=null && login.getAccount().equals("Employee")) {
 			while(true) {
 				System.out.println("----------Hi Employee----------");
 				System.out.println("Enter the task you wanted to do:");
@@ -109,11 +112,11 @@ public class MainMenu {
 				System.out.println("2.Update the Employee");
 				System.out.println("3.View Payslip");
 				System.out.println("0.Exit");
-				int c=sc.nextInt();
-				sc.nextLine();
+				br = new BufferedReader(new InputStreamReader(System.in));
+				c =Integer.parseInt(br.readLine());
 				switch (c) {
 				case 1:
-					condition=Viewemployee.Viewemployeedetails();
+					condition=DbEmployeeView.viewEmp();
 					break;
 				case 2:
 					condition=EmpUpdate.updateEmp();
@@ -123,7 +126,7 @@ public class MainMenu {
 					break;
 				case 0:
 					System.out.println("Program exited");
-					System.exit(0);
+					return;
 				default:
 					System.out.println("Invalid choice try again");
 					break;
