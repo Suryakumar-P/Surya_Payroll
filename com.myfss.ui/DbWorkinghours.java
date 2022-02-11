@@ -51,7 +51,7 @@ package FSS.ui;
 				return true;
 			}
 				public static void main (String[] args) throws Exception {
-					DbWorkinghours wh=new DbWorkinghours();
+					Workinghours wh=new Workinghours();
 					wh.workingHours();
 	
 	}
