@@ -42,10 +42,10 @@ public class EmployeeDAO {
 	
 	//Returns employee details of the employee given
 	public static Employee viewEmployee(String EID) throws SQLException {
-		String query=String.format("select *from employee_personal_details where login_id='%s'",EID);
+		String query=String.format("select *from user_personal_details where login_id='%s'",EID);
 		ResultSet result=MySqlCon.select(query);
 		while(result.next()) {
-		return new Employee(result.getString("login_id"),result.getString("firstname"),result.getString("lastname"),result.getString("email_address"),result.getString("phone"),result.getString("dob"),result.getString("position"),result.getString("doj"),result.getString("employee_grade"),result.getString("team"),result.getString("comapny_name"));
+		return new Employee(result.getString("login_id"),result.getString("firstname"),result.getString("lastname"),result.getString("email_address"),result.getString("phone"),result.getString("dob"),result.getString("position"),result.getString("doj"),result.getString("employee_grade"),result.getString("team"),result.getString("company_name"));
 		}
 		return new Employee();
 	}
